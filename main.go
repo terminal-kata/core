@@ -34,5 +34,6 @@ func main() {
 	if err != nil {
 		log.Fatalln("Can't start:", err)
 	}
+	defer client.RemoveContainer(docker.RemoveContainerOptions{ID: container.ID, Force: true})
 	log.Println("OK")
 }
